@@ -5,10 +5,21 @@ class Api::V1::UsersController < ApplicationController
     def register
         @user = User.new(user_params)
         if @user.save
-            response = { message: 'User created successfully'}
+            response = { message: 'User created successfully', auth_key: user.gen_auth_key}
             render json: response, status: :created 
         else
             render json: @user.errors, status: :bad
+        end 
+    end
+
+    # POST /sign_in
+    def sign_in
+        @user = User.find_by(email: params['email'], password: params['password'])
+        if @user
+            response = { message: 'User created successfully', auth_key: user.gen_auth_key}
+            render json: response, status: :created 
+        else
+            render json: {error: 'Invalid email or password'}, status: :bad
         end 
     end
 
