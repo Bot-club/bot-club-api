@@ -23,6 +23,17 @@ class Api::V1::UsersController < ApplicationController
         end 
     end
 
+    # DELETE /sign_out
+    def sign_out
+        @device_config = @user.device_configs.find_by(auth_key: params[:auth_key])
+        if @device_config.destroy
+            response = { message: 'Signed out successfully'}
+            render json: response, status: :destroyed 
+        else
+            render json: {error: 'Something went wrong try again after sometime'}, status: :bad
+        end 
+    end
+
     private
 
     def user_params
