@@ -1,0 +1,52 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore log files and temporary files.
+/log/*
+!/log/.keep
+/tmp
+
+# Ignore secrets and configurations
+config/secrets.yml
+config/database.yml
+config/marketplace_api_config.yaml
+db/schema.rb
+config/secrets.yml
+config/aws.yml
+config/paperclip_storage.yml
+config/initializers/sentry.rb
+config/client_secret.json
+config/skylight.yml
+config/paperclip_storage.yml
+config/omnicontact.yml
+config/mongoid.yml
+config/juspay.yml
+config/fs_analytics_config.yml
+
+# Ignore files that were created during merge conflicts
+*.orig
+
+# Ignore deployment and dev-ops related files
+config/deploy/*.*
+config/deploy.rb
+config/capistrano_deploy.rb
+config/mina_deploy.rb
+config/appsignal.yml
+config/initializers/redis.rb
+.capistrano/
+Capfile
+
+# Mailman
+config/mailman.rb
+config/mailman_server
+
+# Miscellaneous
+public/system
+public/assets
+public/landing_pages
+dump.rdb
+dev.sql
+DevGuide.txt
+.DS_Store
+.taskpaper
+mkmf.log
