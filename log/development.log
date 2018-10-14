@@ -853,3 +853,72 @@ Unpermitted parameter: :student_class
 Completed 500 Internal Server Error in 27ms (Views: 0.3ms | ActiveRecord: 8.3ms)
 
 
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (16.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2874720298680297900)[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateDeviceConfigs (20181014062808)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (34.7ms)[0m  [1m[35mDROP TABLE "device_configs"[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181014062808"]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (27.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUsers (20181014060525)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.8ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181014060525"]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2874720298680297900)[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2874720298680297900)[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUsers (20181014060525)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (38.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "student_class" character varying, "school" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181014060525_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181014060525"]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateDeviceConfigs (20181014062808)
+  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (28.0ms)[0m  [1m[35mCREATE TABLE "device_configs" ("id" bigserial primary key, "auth_key" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_62377555d9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181014062808_create_device_configs.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_device_configs_on_user_id" ON "device_configs"  ("user_id")[0m
+  ↳ db/migrate/20181014062808_create_device_configs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181014062808"]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (28.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2874720298680297900)[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
