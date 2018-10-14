@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       post 'upload'                   => 'file_manager#upload'
       post 'user/register'            => 'users#register'
       post 'user/sign_in'             => 'users#sign_in'
-      delete 'user/sign_in'          => 'users#sign_out'
+      delete 'user/sign_out'          => 'users#sign_out'
     end
   end
 end

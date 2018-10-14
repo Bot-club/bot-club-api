@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-    validates_presence_of :name, :email
+    validates_presence_of :name, :email, :password
     validates :email, uniqueness: true
     has_many  :device_configs
 
 
-    private 
+    # private 
 
     def gen_auth_key
         auth_key = SecureRandom.base64(32)
