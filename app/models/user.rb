@@ -2,6 +2,8 @@ class User < ApplicationRecord
     validates_presence_of :name, :email, :password
     validates :email, uniqueness: true
     has_many  :device_configs
+    has_many  :answers
+    has_many  :questions
 
 
     # private 

@@ -1101,3 +1101,50 @@ Completed 500 Internal Server Error in 58ms (Views: 0.3ms | ActiveRecord: 17.6ms
 
 
   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "device_configs"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2874720298680297900)[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateQuestions (20181015054448)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (57.9ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "title" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_047ab75908"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181015054448_create_questions.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_questions_on_user_id" ON "questions"  ("user_id")[0m
+  ↳ db/migrate/20181015054448_create_questions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181015054448"]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateAnswers (20181015054727)
+  [1m[35m (5.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (22.1ms)[0m  [1m[35mCREATE TABLE "answers" ("id" bigserial primary key, "description" character varying, "question_id" bigint, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_3d5ed4418f"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+, CONSTRAINT "fk_rails_584be190c2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181015054727_create_answers.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_answers_on_question_id" ON "answers"  ("question_id")[0m
+  ↳ db/migrate/20181015054727_create_answers.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_answers_on_user_id" ON "answers"  ("user_id")[0m
+  ↳ db/migrate/20181015054727_create_answers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181015054727"]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (23.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2874720298680297900)[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Fahd/.rbenv/versions/2.4.1/bin/rake:22
