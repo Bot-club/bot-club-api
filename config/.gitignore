@@ -4,7 +4,7 @@
 # Ignore log files and temporary files.
 /log/*
 !/log/.keep
-/tmp
+/tmp/*
 
 # Ignore secrets and configurations
 config/secrets.yml
